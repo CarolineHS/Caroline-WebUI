@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getArrMaxValue(arr) {
+            // 声明一个max变量
+            // 把数组第一个值给max
+            let max = arr[0]
+            // 开始遍历数组并比较
+            for (let i = 1; i < arr.length; i++) {
+                if (max < arr[i]) {
+                    max = arr[i]
+                }
+            }
+            // 返回这个最大值
+            return max
+        }
+        let max = getArrMaxValue([1, 6, 2, 9, 3])
+        document.write(max)
+
+        function getArrMin(Arr) {
+            let min = Arr[0]
+            for (let j = 1; j < Arr.length; j++) {
+                if (min> Arr[j]) {
+                    min = Arr[j]
+                }
+            }
+            return min
+        }
+        let min = getArrMin([1, 6, 2, 9, 3])
+        document.write(min)
+    </script>
+</body>
+</html>

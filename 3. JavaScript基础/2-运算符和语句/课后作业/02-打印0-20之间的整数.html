@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1. 打印0-20之间的整数，将每个数输出到控制台
+        let i = 0
+        while (i <= 20) {
+            console.log(i)
+            i++
+        }
+
+        // 2. 计算1-1000之间的和
+        let j = 1
+        let sum = 0
+        while (j <= 1000) {
+            sum += j
+            j++
+        }
+        document.write(`1-1000的和为${sum}`)
+
+        // 3. 用户输入任意两个数，计算两个数之间的和
+        let x = +prompt('请输入第一个数字')
+        let y = +prompt('请输入第二个数字')
+        let sum1 = 0
+        while (x <= y) {
+            sum1 += x
+            x++
+        }
+        document.write(`数字和为${sum1}`)
+    </script>
+</body>
+</html>

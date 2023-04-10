@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+            width: 150px;
+            height: 30px;
+            border: 2px solid hotpink;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 30px;
+        }
+    </style>
+</head>
+<body>
+    抽中的选手：<div></div>
+    <script>
+        // 1. 获取元素
+        let box = document.querySelector('div')
+        // 2. 得到随机的名字
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        let arr = ['小小','大大','霓裳','木兮','倾城','墨锦','桃花','茯苓','木槿','迷雾','仙柒','挽风','薰池','白昼','薰池','词曲','柚茶','予遥','薄年','文浅','拾心','淡忘','慕然','暮柔','千城','顾玖','星河','南尘','北宸','心音','安笙','落苑','不眠','余味','Nitia','執筆','遠客','慾朢','璎埖','Golven','Agonie','Renaitre','Farewell','Fickle']
+        // 生成一个随机数
+        let random = getRandom(0, arr.length - 1)
+        // document.write(arr[random])
+        // 3. 写入标签内部
+        box.innerHTML = arr[random]
+
+        arr.splice(random, 1)
+    </script>
+</body>
+</html>

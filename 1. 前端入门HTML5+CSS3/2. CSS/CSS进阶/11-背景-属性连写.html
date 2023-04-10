@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复合属性</title>
+    <style>
+        div{
+            width: 800px;
+            height: 800px;
+            /* 不分先后顺序 */
+            /* 背景图位置如果是英文单词可以颠倒顺序 */
+            background:pink url(./images/OK.jpg) no-repeat center bottom;
+            /* 背景图位置如果是数值,不要颠倒顺序 */
+            /* 水平50px，垂直100px */
+            background:pink url(./images/OK.jpg) no-repeat 50px 100px;
+        }
+            
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+</html>

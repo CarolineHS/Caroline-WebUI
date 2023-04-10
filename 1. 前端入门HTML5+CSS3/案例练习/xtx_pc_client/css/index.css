@@ -1,0 +1,390 @@
+/* 放index页面的样式表 */
+/* banner */
+.banner {
+    height: 500px;
+    background-color: #f5f5f5;
+}
+.banner .wrapper {
+    position: relative;
+    height: 500px;
+}
+
+/* 侧导航 */
+.banner .aside {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 250px;
+    height: 500px;
+    /* background-color: #000;
+    opacity: 0.8; */
+    background-color: rgba(0,0,0,0.8);
+}
+
+.banner .aside li {
+    height: 50px;
+    line-height: 50px;
+}
+
+.banner .aside a {
+    position: relative;
+    /* 宽度和父级一样 */
+    display: block;
+    padding-left: 36px;
+    padding-right: 19px;
+    width: 250px;
+    height: 50px;
+    color: #fff;
+}
+
+.banner .aside a span {
+    margin-left: 15px;
+    font-size: 14px;
+}
+
+.banner .aside a:hover {
+    background-color: #27ba9b;
+}
+
+/* a的里面最后的位置添加箭头 */
+.banner .aside a::after {
+    position: absolute;
+    right: 19px;
+    top: 19px;
+    content: '';
+    width: 6px;
+    height: 11px;
+    background-image: url(../images/sprites.png);
+    background-position: -80px -110px;
+}
+
+/* 箭头 */
+.banner .prev,
+.banner .next {
+    position: absolute;
+    top: 228px;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0,0,0,0.2);
+    background-image: url(../images/sprites.png);
+    border-radius: 50%;
+}
+
+/* 背景图位置负责2件事：改变箭头在盒子里面的位置，改变精灵图的位置 */
+/* 导致在精灵图中测量的尺寸不准确 */
+/* 解决方案有2种：
+    1. 书写背景图位置属性，借助谷歌的调试工具调试具体的位置数值
+    2. 书写标签的时候，a负责盒子，里面再添加一个span负责箭头
+*/
+.banner .prev {
+    left: 260px;
+    background-position: 14px -60px;
+}
+
+.banner .next {
+    right: 10px;
+    background-position: -23px -60px;
+}
+
+/* 圆点 */
+.banner ol {
+    position: absolute;
+    left: 680px;
+    bottom: 30px;
+    height: 10px;
+}
+
+.banner ol li {
+    float: left;
+    margin-right: 24px;
+    width: 10px;
+    height: 10px;
+    background-color: rgba(255,255,255,0.43);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.banner ol .current {
+    background-color: #fff;
+}
+
+/* 新鲜好物 */
+.goods .hd {
+    height: 114px;
+    line-height: 114px;
+}
+
+/* header头部 */
+.goods .hd h2,
+.popular .hd h2,
+.brand .hd h2 {
+    float: left;
+    font-size: 29px;
+    font-weight: 400;
+    /* h2字号的字把行高撑开导致大于给定的114像素，占据了下面li的位置，因为要给它定一个行高 */
+    height: 114px;
+}
+
+.goods .hd h2 span,
+.popular .hd h2 span,
+.brand .hd h2 span {
+    margin-left: 34px;
+    font-size: 16px;
+    color: #999;
+}
+
+.goods .hd a,
+.fresh .hd .more {
+    float: right;
+    color: #999;
+}
+
+.goods .hd a::after,
+.fresh .hd .more::after {
+    content: '';
+    display: inline-block;
+    margin-left: 13px;
+    width: 7px;
+    height: 13px;
+    background-image: url(../images/sprites.png);
+    background-position: 0 -110px;
+    vertical-align: middle;
+}
+
+/* body内容 */
+.goods .bd li {
+    position: relative;
+    float: left;
+    margin-right: 8px;
+    width: 304px;
+    height: 405px;
+    background-color: #f0f9f4;
+    text-align: center;
+}
+
+.goods .bd li:last-child {
+    margin-right: 0;
+}
+
+.goods .bd li img {
+    width: 304px;
+}
+
+.goods .bd li h3 {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.goods .bd li div,
+.fresh .bd li div {
+    color: #9a2e1f;
+    font-size: 17px;
+}
+
+.goods .bd li div span,
+.fresh .bd li div span {
+    font-size: 23px;
+}
+
+/* 热门 */
+.goods .bd li b {
+    position: absolute;
+    left: 17px;
+    top: 18px;
+    width: 28px;
+    height: 51px;
+    border: 1px solid #27ba9b;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 400;
+    color: #27ba9b;
+    line-height: 24px;
+}
+
+
+/* 人气推荐 */
+.popular .hd {
+    height: 114px;
+    line-height: 114px;
+}
+
+/* header头部 */
+
+/* body内容 */
+.popular .bd li {
+    float: left;
+    margin-right: 8px;
+    width: 304px;
+    height: 405px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.popular .bd li:last-child {
+    margin-right: 0;
+}
+
+.popular .bd li img {
+    width: 304px;
+}
+
+.popular .bd li h3 {
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 21px;
+    font-weight: 400;
+}
+
+.popular .bd li div {
+    color: #999;
+    font-size: 16px;
+}
+
+
+/* 热门品牌 */
+.brand {
+    margin-top: 55px;
+    height: 466px;
+    background-color: #f5f5f5;
+}
+
+.brand .wrapper {
+    position: relative;
+    height: 466px;
+}
+
+.brand .hd {
+    height: 114px;
+    line-height: 114px;
+}
+
+/* header头部 */
+
+/* 箭头 */
+.brand .prev,
+.brand .next {
+    position: absolute;
+    top: 79px;
+    width: 20px;
+    height: 20px;
+    background-color: #e2e2e2;
+    background-image: url(../images/sprites.png);
+    border-radius: 2px;
+}
+
+/* 背景图位置负责2件事：改变箭头在盒子里面的位置，改变精灵图的位置 */
+/* 导致在精灵图中测量的尺寸不准确 */
+/* 解决方案有2种：
+    1. 书写背景图位置属性，借助谷歌的调试工具调试具体的位置数值
+    2. 书写标签的时候，a负责盒子，里面再添加一个span负责箭头
+*/
+.brand .prev {
+    right: 33px;
+    background-position: 14px -60px;
+}
+
+.brand .next {
+    right: 3px;
+    background-position: -23px -60px;
+}
+
+.brand .hd .current {
+    background-color: #27ba9b;
+}
+
+/* body内容 */
+.brand .bd li {
+    float: left;
+    margin-right: 5px;
+    width: 244px;
+    height: 306px;
+}
+
+.brand .bd li:last-child {
+    margin-right: 0;
+}
+
+.brand .bd li img {
+    width: 244px;
+}
+
+
+/* 生鲜 */
+/* header头部 */
+.fresh .hd {
+    height: 96px;
+    line-height: 96px;
+}
+
+.fresh .hd h2 {
+    float: left;
+    font-size: 29px;
+    font-weight: 400;
+}
+
+.fresh .hd .more {
+    float: right;
+}
+
+.fresh .hd ul {
+    float: right;
+    margin-right: 65px;
+}
+
+.fresh .hd ul li {
+    float: left;
+}
+
+.fresh .hd li a {
+    padding: 2px 7px;
+    margin-right: 6px;
+}
+
+.fresh .hd li a:hover {
+    background-color: #27ba9b;
+    color: #fefbfc;
+}
+
+/* body内容 */
+/* left */
+.fresh .bd .left {
+    float: left;
+    width: 240px;
+    height: 610px;
+}
+
+/* right */
+.fresh .bd .right {
+    float: left;
+    width: 1000px;
+    height: 610px;
+}
+
+.fresh .bd li {
+    float: right;
+    margin-left: 8px;
+    margin-bottom: 3px;
+    width: 242px;
+    height: 304px;
+}
+
+.fresh .bd li:nth-child(4-n) {
+    margin-bottom: 0;
+}
+
+.fresh .bd li img {
+    margin: 8px 30px;
+    width: 185px;
+    height: 185px;
+}
+
+.fresh .bd li p {
+    margin-left: 28px;
+    font-size: 16px;
+}
+
+.fresh .bd li div {
+    margin-left: 28px;
+}

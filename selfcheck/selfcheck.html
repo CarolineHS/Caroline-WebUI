@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SelfCheck</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            /* css3盒子模型 */
+            box-sizing: border-box;
+        }
+
+        .section {
+            padding: 100px;
+        }
+
+        .col {
+            display: flex;
+            height: 150px;
+            border-bottom: 1px solid #000;
+        }
+
+        .col .col-2 {
+            display: flex;
+            width: 200px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .col .col-3 .status, .dns, .http {
+            display: flex;
+            border-bottom: 1px solid #000;
+        }
+
+        .col .col-3 h4 {
+            margin: 14px 400px 14px 20px;
+            width: 308px;
+            font-weight: normal;
+        }
+
+        .col .col-3 p {
+            margin: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="col">
+            <div class="col-2">Internet</div>
+            <div class="col-3">
+                <div class="status">
+                    <h4>Network Status</h4>
+                    <p>Wait Check</p>
+                </div>
+                <div class="dns">
+                    <h4>DNS</h4>
+                    <p>Wait Check</p>
+                </div>
+                <div class="http">
+                    <h4>HTTP</h4>
+                    <p>Wait Check</p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="col-2">Internet</div>
+            <div class="col-3">
+                <div class="status">
+                    <h4>Network Status</h4>
+                    <p>Wait Check</p>
+                </div>
+                <div class="dns">
+                    <h4>DNS</h4>
+                    <p>Wait Check</p>
+                </div>
+                <div class="http">
+                    <h4>HTTP</h4>
+                    <p>Wait Check</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

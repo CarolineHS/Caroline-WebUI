@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // N - M之间的随机数公式
+        // Math.floor(Math.random() * (M - N + 1)) + N
+        // let random = Math.floor(Math.random() * (10)) + 1
+        // console.log(random)
+        // 封装一个随机数函数  min到max
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        let random = getRandom(1, 10)
+        document.write(random)
+        document.write(`<br>`)
+        let random1 = getRandom(1, 50)
+        document.write(random1)
+    </script>
+</body>
+</html>

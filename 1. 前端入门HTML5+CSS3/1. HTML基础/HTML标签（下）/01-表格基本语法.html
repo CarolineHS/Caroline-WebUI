@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表格的基本语法</title>
+</head>
+<body>
+    <!-- <style>
+        table{width: 200px;min-height: 25px;line-height: 25px;text-align: center;border-color:blueviolet;border-collapse: collapse;}
+    </style> -->
+    <!-- 实际开发中表格的样式使用CSS设置 -->
+    <table align="left" border="1" cellpadding="10" cellspacing="0" width="700" height="50">
+        <caption><strong>表格标签</strong></caption>
+        <tr>
+            <th>属性名</th>
+            <th>属性值</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td>align</td>
+            <td>left、canter、right</td>
+            <td>规定表格相对周围元素的对齐方式</td>
+        </tr>
+        <tr>
+            <td>border</td>
+            <td>1或""</td>
+            <td>规定表格单元是否拥有边框，默认为""，表示没有边框</td>
+        </tr>
+        <tr>
+            <td>cellpadding</td>
+            <td>像素值</td>
+            <td>规定单元边沿与其内容之间的空白，默认1像素。</td>
+        </tr>
+        <tr>
+            <td>cellspacing</td>
+            <td>像素值</td>
+            <td>规定单元格之间的空白，默认2像素。</td>
+        </tr>
+        <tr>
+            <td>width</td>
+            <td>像素值或百分比</td>
+            <td>规定表格的宽度。</td>
+        </tr>
+    </table>
+</body>
+</html>

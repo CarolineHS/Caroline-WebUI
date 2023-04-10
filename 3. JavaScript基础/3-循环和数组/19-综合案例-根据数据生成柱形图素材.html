@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>柱状图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .box {
+            /* 弹性布局 */
+            display: flex;
+            width: 700px;
+            height: 300px;
+            border-left: 1px solid pink;
+            border-bottom: 1px solid pink;
+            margin: 50px auto;
+            /* justify-content 用于设置或检索弹性盒子元素在主轴（横轴）方向上的对齐方式。 */
+            /* 均匀排列每个元素，每个元素周围分配相同的空间 */
+            justify-content: space-around;
+            /* 元素位于容器的结尾。弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。 */
+            align-items: flex-end;
+            text-align: center;
+        }
+
+        .box>div {
+            display: flex;
+            width: 50px;
+            background-color: pink;
+            /* flex-direction 属性规定灵活项目的方向。 */
+            /* 灵活的项目将垂直显示，正如一个列一样。 */
+            flex-direction: column;
+            /* 均匀排列每个元素，首个元素放置于起点，末尾元素放置于终点 */
+            justify-content: space-between;
+        }
+
+        .box div span {
+
+            margin-top: -20px;
+        }
+
+        .box div h4 {
+            margin-bottom: -35px;
+            width: 70px;
+            margin-left: -10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="box">
+        <div style="height: 123px;">
+            <span>123</span>
+            <h4>第1季度</h4>
+        </div>
+        <div style="height: 156px;">
+            <span>156</span>
+            <h4>第2季度</h4>
+        </div>
+        <div style="height: 120px;">
+            <span>120</span>
+            <h4>第3季度</h4>
+        </div>
+        <div style="height: 210px;">
+            <span>210</span>
+            <h4>第4季度</h4>
+        </div>
+
+    </div> -->
+    <script>
+        // 1. 利用循环弹出四次输入框，会得到4个数据，放到数组里面
+        let arr = []
+        for (let i = 1; i < 5; i++) {
+            // prompt(`请输入第 ${i} 季度的数据`)
+            arr.push(prompt(`请输入第 ${i} 季度数据`))
+        }
+        document.write(`<div class="box">`)
+            // 循环柱子
+            for (let i = 0; i < arr.length; i++) {
+                document.write(`
+                    <div style="height: ${arr[i]}px;">
+                        <span>${arr[i]}</span>
+                        <h4>第${i + 1}季度</h4>
+                    </div>
+                `)
+            }
+        document.write(`</div>`)
+    </script>
+</body>
+
+</html>

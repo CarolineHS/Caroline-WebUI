@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emmet语法</title>
+    <style>
+        div{
+            /* fsz */
+            /* font-size: ; */
+            /* 提示css属性：单词的首字母 */
+            /* font-weight: ; */
+            font-weight: 700;
+            width: 12;
+            height: 12;
+            background-color: #fff;
+            /* line-height: ; */
+            line-height: 12;
+
+            /* 宽度300，高度是200，背景色是粉色 */
+            /* w300+h200+bgc */
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <h1></h1>
+
+    <!-- 生成div带类名 -->
+    <div class="box"></div>
+    <p class="box"></p>
+
+    <div id="box"></div>
+    <p id="box"></p>
+
+    <p class="red" id="one"></p>
+    <!-- div同级  p  + -->
+    <div></div>
+    <p></p>
+    <!-- 父子 >  -->
+    <div>
+        <p></p>
+    </div>
+
+    <ul>
+        <li></li>
+    </ul>
+    <!-- ul有三个li  *   -->
+    <!-- ul>li*3 -->
+    <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <!-- ul里面有三个li，li里面有文字111 -->
+    <!-- ul>li{111}*3 -->
+    <ul>
+        <li>111</li>
+        <li>111</li>
+        <li>111</li>
+    </ul>
+    <!-- ul里面有3个li，li文字是1,2,3 -->
+    <!-- ul>li{$}*3 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+</body>
+</html>

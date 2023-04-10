@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function test() {
+            let balance = +prompt('请输入银行卡余额')
+            let food = +prompt('请输入当月食宿消费金额')
+            let life = +prompt('请输入当月生活消费金额')
+            let d = balance - food - life
+            return d
+        }
+        let money = test()
+        document.write(`银行卡当前剩余金额为${money}`)
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>塌陷现象</title>
+    <style>
+        .father {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            box-sizing: border-box;
+            /* padding-top: 50px; */
+            /* border: 1px solid #000; */
+            /* overflow: hidden; */
+
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            /* 互相嵌套的块级元素，子元素的margin-top会作用在父元素上 */
+            /* 导致父元素一起往下移动 */
+            margin-top: 50px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">son</div>
+    </div>
+</body>
+</html>

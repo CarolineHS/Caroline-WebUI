@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min
+        }
+        let random = getRandom(0, 20)
+
+        let flag = true
+        // 最多猜8次
+        for (let i = 0; i < 8; i++) {
+            let num = +prompt('请输入一个数字')
+            if (num > random) {
+                alert('你猜测的数字太大了，请继续')
+            } else if (num < random) {
+                alert('你猜测的数字太小了，请继续')
+            } else {
+                flag = false
+                alert('恭喜你！你猜对了！')
+                break
+            }
+        }
+        if (flag) {
+            alert('很遗憾，游戏结束~你好笨哦')
+        }
+
+    </script>
+</body>
+</html>

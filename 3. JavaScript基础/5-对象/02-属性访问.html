@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let person = {
+            uname: '小米',
+            age: 23,
+            sex: '女',
+            // 方法名：function(){}
+            sayHi: function() {
+                console.log('hi~~~')
+            },
+            mtv: function(s) {
+                console.log(s)
+            },
+            adress: function(a) {
+                document.write(a)
+            }
+        }
+        // 1. 对象.属性名
+        console.log(person.uname)
+        console.log(person.age)
+        // 2. 对象['属性名']
+        console.log(person['uname'])
+        console.log(person['age'])
+
+        // 调用方法 对象.方法名()
+        person.sayHi()
+        person.mtv('老友记')
+        person.adress('中国大陆')
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function repeat() {
+        //     console.log('间歇函数')
+        // }
+        // // 每隔一秒调用repeat函数
+        // setInterval(repeat, 1000)
+
+        function show() {
+            console.log('间歇函数')
+        }
+        // 定时器返回值timer为一个数字
+        let timer = setInterval(show, 1000)
+
+        // 清除定时器
+        clearInterval(timer)
+    </script>
+</body>
+</html>
