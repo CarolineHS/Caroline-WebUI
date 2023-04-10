@@ -334,3 +334,4 @@
 1. 记单词
 2. 完成隐藏页面字段英日文表格WebUI_Strings_v1.0隐藏页面
 3. 提交上周debug代码：WebUI：debug Connection History and Bluetooth Management Mobile adaptation issues
+4. 创建GitHub仓库，远程连接，clone到本地仓库，上传之前所有的代码以及笔记
