@@ -304,7 +304,8 @@
 #### 2023年4月5日星期三
 
 1. 记单词100
-2. 搬家
+2. 清明放假
+3. 搬家
 
 #### 2023年4月6日星期四
 
@@ -327,11 +328,38 @@
 
 - [x] 隐藏页面字段英日文表格WebUI_Strings_v1.0隐藏页面
 - [x] 提交上周debug代码
+- [x] 删除隐藏页面入口，优化代码
+- [x] 修改WebUI_Strings_v1.0文档，跟客户沟通
 - [ ] 查看Connection History接口对接的代码
 
 #### 2023年4月10日星期一
 
-1. 记单词
+1. 记单词100
 2. 完成隐藏页面字段英日文表格WebUI_Strings_v1.0隐藏页面
 3. 提交上周debug代码：WebUI：debug Connection History and Bluetooth Management Mobile adaptation issues
 4. 创建GitHub仓库，远程连接，clone到本地仓库，上传之前所有的代码以及笔记
+
+#### 2023年4月11日星期二
+
+1. 记单词150
+
+#### 2023年4月12日星期三
+
+1. 记单词120
+2. 修改WebUI_Strings_v1.0文档，删除和备注不需要的部分
+3. 删除隐藏页面入口：Roaming Setting
+
+#### 2023年4月13日星期四
+
+1. 记单词120
+2. git pull两次新上传的代码，重新编译了一版因为Download Log对接了接口
+3. 又修改了一版WebUI_Strings_v1.0文档，删除和备注不需要的部分，添加新增页面字段-Download Log
+
+#### 2023年4月14日星期五
+
+1. 记单词130
+2. 删除隐藏页面入口：Settings-Mobile Network Settings-Roaming Setting、Network Configuration，Settings-Public WiFi、Settings-PIN Management、Settings-LAN Settings-Port Trigger、DMZ、UPnP，Settings-Wi-Fi Settings-WPS，Settings-Device Settings-Data Usage Settings、Ethernet Settings、USB Mode、Backup/Restore，TestMode-Network Configuration，About，Network Monitor Mode。
+3. WebUI: Deleted the hidden page entry.代码提交，git push之前忘记git pull --rebase了
+4. 替换客户提供的日文翻译字符串：home，Connected Clients-Client List、MAC Address Filtering，Settings-Connection History、Bluetooth Management、
+5. WebUI: Replaced the Japanese string.代码提交，替换jp.json字符串
+6. 写周报和软件技术分享报告选题
