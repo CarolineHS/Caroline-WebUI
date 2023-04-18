@@ -363,3 +363,16 @@
 4. 替换客户提供的日文翻译字符串：home，Connected Clients-Client List、MAC Address Filtering，Settings-Connection History、Bluetooth Management、
 5. WebUI: Replaced the Japanese string.代码提交，替换jp.json字符串
 6. 写周报和软件技术分享报告选题
+
+
+
+### 2023.04.17-2023.04.21
+
+- [ ]  json文件字符串继续与客户沟通替换和修改
+- [ ] 查看Connection History接口对接的代码
+- [ ] 学习jQuery或者Ajax二选一
+
+#### 2023年4月17日星期一
+
+1. 记单词200
+2. 修改mantis上issue的状态
