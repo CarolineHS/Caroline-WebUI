@@ -370,9 +370,43 @@
 
 - [ ]  json文件字符串继续与客户沟通替换和修改
 - [ ] 查看Connection History接口对接的代码
-- [ ] 学习jQuery或者Ajax二选一
+- [ ] 学习完jQuery
 
 #### 2023年4月17日星期一
 
 1. 记单词200
 2. 修改mantis上issue的状态
+
+#### 2023年4月18日星期二
+
+1. 记单词120
+2. jQuery：jQuery属性操作、购物车模块-全选、jQuery内容文本值、购物车模块-增减商品数量、修改商品小计、jQuery遍历对象each方法、遍历数据$.each、购物车模块-计算总件数和总额、创建添加删除元素、购物车模块-清理购物车、选中商品添加背景颜色
+
+#### 2023年4月19日星期三
+
+1. 记单词130
+2. jQuery：jQuery尺寸方法、位置方法、被卷去头部方法，带有动画的返回顶部，电梯导航案例-显示隐藏电梯导航、点击滚动目标位置
+3. debug：debug DHCP Server and Navigation width.
+   1. DHCP Server: debug DHCP Server Reserved IP Address List only display two and a half lines.页面高度是通过计算标签元素高度来获取的，显示不全是因为获取数据需要时间渲染到页面上，但是计算高度的时候来不及把这个高度加上就计算完成了，所以要加一个延时等渲染完下面的button再计算页面高度。
+   2. Navigation width: debug Navigation text display wrapping.
+
+#### 2023年4月20日星期四
+
+1. 记单词150
+2. debug：There are some errors by adding number 0 before characters on DHCP configuration page.但是没办法复现，因为点击apply之后页面会一直加载，卡住，不能手动刷新，也不能重启，必须重新烧录代码才能重新进入页面
+3. 烧录了一版新的代码：FKSB-100D.0.3.6-20230420-172120
+
+#### 2023年4月21日星期五
+
+1. 记单词100
+2. jQuery：电梯导航案例-点击当前li添加current类、滑动页面电梯导航自动添加current类、节流阀（互斥锁）。
+3. 写周报
+
+
+
+### 2023.04.24-2023.04.28
+
+#### 2023年4月24日星期一
+
+1. 记单词
+2. 

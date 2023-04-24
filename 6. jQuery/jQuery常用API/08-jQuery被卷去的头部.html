@@ -44,7 +44,7 @@
             $(window).scroll(function() {
                 // console.log(11);
                 console.log($(document).scrollTop());
-                if ($(document).scrollTop() >= boxTop) {
+                if($(document).scrollTop() >= boxTop) {
                     $(".back").fadeIn();
                 } else {
                     $(".back").fadeOut();
@@ -56,9 +56,8 @@
                 $("body, html").stop().animate({
                     scrollTop: 0
                 });
-                // $(document).stop().animate({
-                //     scrollTop: 0
-                // }); 不能是文档而是 html和body元素做动画
+                // $("document").stop().animate({scrollTop: 0});
+                // 不能是文档，文档不能做动画效果，而是html和body元素做动画
             })
         })
     </script>
