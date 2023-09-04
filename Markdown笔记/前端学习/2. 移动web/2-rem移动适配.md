@@ -26,9 +26,10 @@ rem单位
                 CSS属性
             }
         }
-		@media (width:375px) {
+
+		@media (width:320px) {
             html {
-                font-size: 40px;
+                font-size: 32px;
             }
         }
 ```

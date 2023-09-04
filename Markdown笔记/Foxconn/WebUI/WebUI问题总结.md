@@ -32,6 +32,9 @@
 11. 代码解压后，下载烧录软件，根据《KAGA Mifi2 QFIL 烧录固件》SOP在SVN上下载烧录的软件，然后按照步骤烧录，烧录成功后按照《调试webui》cmd输入指令开启板子，浏览器输入板子ip进行连接
 12. WebUI最新代码合并之后弹警示框`Socket TimeOut`，原因是对接了新的接口，没有编译最新的代码，需要拉取最新的代码进行编译，编译要记得进入docker环境。
 13. 页面一直弹出警示框：`Device went to a bad state..please re-login!!`，原因是由于我们不断的push新的代码进去，所以有很多错误日志，磁盘满了，解决方案：`adb shell`进入设备，`rm -rf data/www/serror.log`，清除错误日志，`adb reboot`重启设备即可
+14. 手机连接MiFi，访问IP，查看网页效果，连接不上的解决办法：修改mac地址，adb shell进入板子，ifconfig查看HWaddr后的mac地址，使用命令`fx-set-wifi-mac`后面跟00A1C6EBCC88类似于这样的修改过的mac地址，最后reboot重启动，再连接即可。
+15. push代码进板子时提示：`C:\Users\25589>adb push E:\kaga\WebUI\web20230526_1\www /WEBSERVER
+    adb: error: failed to copy 'E:\kaga\WebUI\web20230526_1\www\mManagementadb.html' to '/WEBSERVER/www/mManagementadb.html': remote Read-only file system`解决办法：`adb shell rw`
 
 #### 4. Git上传提交代码到服务器
 
@@ -65,5 +68,211 @@
 #### 6. debug
 
 1. debug Connection History and Bluetooth Management手机端适配：将任何 `.table` 元素包裹在 `.table-responsive` 元素内，即可创建响应式表格，其会在小屏幕设备上（小于768px）水平滚动。当屏幕大于 768px 宽度时，水平滚动条消失。
-2. 手机连接MiFi，访问IP，查看网页效果，连接不上的解决办法：修改mac地址，adb shell进入板子，ifconfig查看HWaddr后的mac地址，使用命令`fx-set-wifi-mac`后面跟00A1C6EBCC88类似于这样的修改过的mac地址，最后reboot重启动，再连接即可。
+
+2. debug：debug DHCP Server and Navigation width.
+
+   1. DHCP Server: debug DHCP Server Reserved IP Address List only display two and a half lines.页面高度是通过计算标签元素高度来获取的，显示不全是因为获取数据需要时间渲染到页面上，但是计算高度的时候来不及把这个高度加上就计算完成了，所以要加一个延时等渲染完下面的button再计算页面高度。
+   2. Navigation width: debug Navigation text display wrapping.把导航的高度取消固定，改为自动高度。这样即使换设备也不会出现换行超出高度的情况。
+
+3. WebUI：给settings/Wi-Fi settings/Basic页面添加SSID限制条件，限制特殊字符以及去掉中文字符的限制，给出拦截提示框，并验证是否拦截成功
+
+   ```js
+   // 限制特殊字符
+   if (isValidSSIDStr(AP_SSID_A.value) == false) {
+       parent.alertModal("AlertBox", false, "", GetMessage("mWiFi_Config", "InvalidSSIDMsg1", lang_message) + ssid_no_allow_letter + GetMessage("mWiFi_Config", "InvalidSSIDMsg2", lang_message));
+       return false;
+   }
+   
+   var ssid_no_allow_letter = "`!@#$%^&*()[]{}?/|,<>\\'\"\t:;";
+   
+   function isValidSSIDStr(s) {
+     var i;
+     for (i = 0; i < s.length; i++) {
+       var c = s.charAt(i);
+       if (ssid_no_allow_letter.indexOf(c) >= 0)
+       {
+         return false;
+       }
+     }
+     return true;
+   }
+   
+   // 去掉中文和日文的限制
+   function isValidStr (s) {
+     var i;
+     for (i = 0; i < s.length; i++) {
+       var c = s.charAt(i);
+       var ch = s.charCodeAt(i);
+   
+   	if (digits.indexOf(c) < 0 &&
+   		lowercaseLetters.indexOf(c) < 0 &&
+   		uppercaseLetters.indexOf(c) < 0 &&
+   		special_symbol.indexOf(c) < 0 &&
+   		filed_no_allow_letter.indexOf(c) < 0 &&
+   		device_no_allow_letter.indexOf(c) < 0 && chkCN(c) == false &&
+   		chkJPN(c) == false && !isASCIICodeLong(ch)) {
+         return false;
+       }
+     }
+     return true;
+   }
+   ```
+
+4. WebUI：给settings/Wi-Fi settings/Basic页面添加password限制条件，限制特殊字符以及中文日文字符，给出拦截提示框，并验证是否拦截成功
+
+   ```js
+   // 限制特殊字符
+   if (isValidPWStr(key) == false) {
+   	parent.alertModal("AlertBox", false, "", GetMessage("mWiFi_Config", "InvalidPWMsg1", lang_message) + pw_no_allow_letter + GetMessage("mWiFi_Config", "InvalidPWMsg2", lang_message));
+       return false;
+   }
+   
+   var pw_no_allow_letter = "`!@#$%^&*()[]{}?/|,<>\\'\"\t:;";
+   
+   function isValidPWStr(s) {
+     var i;
+     for (i = 0; i < s.length; i++) {
+       var c = s.charAt(i);
+       if (pw_no_allow_letter.indexOf(c) >= 0)
+       {
+         return false;
+       }
+     }
+     return true;
+   }
+   ```
+
+5. “Wi-Fi Mode”下拉选项框修改为只读文本框：将select选择标签改为input文本框标签，删除option，将value值改为默认只读的IPv4，添加readonly，并修改readonly默认灰色背景颜色为白色。
+
+   ```html
+   <!-- <select name="AP_FreqBand_A_ID" id="AP_FreqBand_A_ID" style="width: 100%;" class="form-control contentinputstyle">
+   	<option value="0">2.4G</option>
+   </select> -->
+   <input type="text" name="AP_FreqBand_A_ID" id="AP_FreqBand_A_ID" style="width: 100%; background-color: white;" class="form-control contentinputstyle" readonly value="2.4G">
+   ```
+
+6. 删除Reset Default页面的ResetSettingMsgA、ResetSettingMsgB、ResetSettingMsgC字符串，添加ResetSettingMsg字符串，将因为有双引号而分成三句话的一段提示文字改为一句话，并修复英日文转换的问题。`document.getElementById("mRestoreDefaultResetSetting").innerHTML = message.mRestoreDefault.ResetSettingMsg;`
+
+7. 给mWiFi_Config_Adv页面加apply的翻译转换代码：`document.getElementById("mWiFi_Config_AdvApplyBtn") .value = message.mAlert.Apply:`
+
+8. 更新MAC Address Filtering页面MAC Address Filter、VPN Pass-through页面PPTP VPN Pass-through Setting和L2TP VPN Pass-through Setting、Basic页面SSID Stealth的Enabled和Disabled，Advanced页面Wi-Fi Channel的Automatic日文转换翻译
+
+9. 给WiFi password添加一个不能使用空格、中文和日文的限制条件，并给出提示：Password is invalid.Not support space, Chinese and Japanese.
+
+   ```js
+   if (/[\u4e00-\u9fa5 ]/.test(key)) {
+       parent.alertModal("AlertBox", false, "", GetMessage("mWiFi_Config", "PWInvalidChar3", lang_message));
+       return false;
+   }
+   if (/[\u0800-\u4e00 ]/.test(key)) {
+       parent.alertModal("AlertBox", false, "", GetMessage("mWiFi_Config", "PWInvalidChar3", lang_message));
+       return false;
+   }
+   ```
+
+10. 给Client List页面加载添加延时，解决Client列表显示不全的问题
+
+    ```js
+    setTimeout(() => {
+    	parent.iframeLoaded(document.getElementById("bigContent").clientHeight + 50);
+    }, 600);
+    ```
+
+11. 给SSID添加首尾均不能添加空格的限制，修改限制条件提示为：SSID must not start and end with the space.
+
+    ```js
+    if (AP_SSID_A.value.slice(len_a-1) == " " || AP_SSID_A.value.slice(0, 1) == " ") {
+        parent.alertModal("AlertBox", false, "", GetMessage("mWiFi_Config", "SSIDAErr4", lang_message));
+        return false;
+    }
+    ```
+
+12. DHCP页面优化：对比当前数据与原始表单数据，如果有改变则true，可以进行下一步，如果没有改变则做出拦截返回false，并给出提示框。
+
+    ```js
+    // js中如何从一个函数获取数据到另一个函数进行使用：将需要传递的数据定义为全局变量，在一个函数中赋值，另一个函数中调用
+    // 定义全局变量
+    var lanipall = "";
+    var lansubmaskall = "";
+    var Dhcp_Enable = "";
+    var sinpall = "";
+    var einpall = "";
+    var leasetime = "";
+    // RefreshWLANSettings()函数中给全局变量赋值
+    lanipall = obj.lan_gw_addrs;
+    lansubmaskall = obj.lan_sub;
+    Dhcp_Enable = obj.lan_dhcp;
+    sinpall = obj.lan_dhcp_start;
+    einpall = obj.lan_dhcp_end;
+    leasetime = obj.lan_dhcp_lease / 3600;
+    // 创建一个isFormChanged()函数
+    function isFormChanged() {
+        // 获取页面中各个配置项的值
+        // var obj = jQuery.parseJSON(msgs);
+        var lanip = document.getElementById("lanipall").value;
+        var subnetMask = document.getElementById("lansubmaskall").value;
+        var dhcpEnabled = document.getElementById("Dhcp_Enable").value;
+        var dhcpStartIP = document.getElementById("sinpall").value;
+        var dhcpEndIP = document.getElementById("einpall").value;
+        var leaseTime = document.getElementById("leasetime").value;
+        // 检查这些值是否与之前保存的值相同
+        if (lanip == lanipall && subnetMask == lansubmaskall 
+            && dhcpEnabled == Dhcp_Enable && dhcpStartIP == sinpall
+            && dhcpEndIP == einpall && leaseTime == leasetime) {
+            return false;
+        }
+        return true;
+    }
+    // apply()函数中调用
+    if (isFormChanged() == false) {
+        parent.alertModal("AlertBox", false, "", GetMessage("mLan_Config", "ApplyNoChangeMsg", lang_message));
+        return false;
+    }
+    ```
+
+13. DHCP页面优化：若提交的内容没有变化则拦截提交并给出提示。问题是，如果修改提交后，不手动刷新，再次不修改直接点击提交，不会被拦截，会直接继续提交。有两种方案：UpdateWLANSettings()的延迟处调用RefreshWLANSettings()接口，或者设置自动刷新当前页面。刷新当前页面：`window.location.reload();`都没办法解决这个问题
+
+14. DHCP页面优化：解决昨天说的需要手动刷新的问题，在调用UpdateWLANSettings()请求之前将当前的值赋值给全局变量。解决问题
+
+    ```js
+    function apply() {
+        if (isFormChanged() == false) {
+        parent.alertModal("AlertBox", false, "", GetMessage("mLan_Config", "ApplyNoChangeMsg", lang_message));
+        return false;
+        }
+        
+        if (valiateIPRange() == false)
+        return false;
+        var AskDeleteMsg = GetMessage("mLan_Config", "PopupChangeDhcp", lang_message);
+    
+        parent.confirmDialog(true, GetMessage("mLan_Config", "PopupChange", lang_message), AskDeleteMsg, GetMessage("mAlert", "OK", lang_message), GetMessage("mAlert", "Cancel", lang_message),
+        function () {//yes function
+            parent.loadingModal();
+            // 在这里把当前的值赋值给全局变量
+            lanipall = document.getElementById("lanipall").value;
+            lansubmaskall = document.getElementById("lansubmaskall").value;
+            Dhcp_Enable = document.getElementById("Dhcp_Enable").value;
+            sinpall = document.getElementById("sinpall").value;
+            einpall = document.getElementById("einpall").value;
+            leasetime = document.getElementById("leasetime").value;
+            UpdateWLANSettings();
+            return true;
+        },
+        function () {//cancel function
+        }
+        );
+    }
+    ```
+
+15. 
+
+    
+
+    
+
+    
+
+
+
+
 
