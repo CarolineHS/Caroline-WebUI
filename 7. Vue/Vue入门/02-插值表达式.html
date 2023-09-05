@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- 插值表达式： 一种模板语法
+        利用表达式进行插值渲染
+        语法：{{ 表达式 }}
+
+        注意点：
+
+        - 使用的数据必须存在（data）
+        - 支持的是表达式，而非语句，比如：if  for
+        - 不能在标签属性中使用{{ }}插值
+    -->
+    <div id="app">
+        <p>{{ nickname }}</p>
+        <p>{{ nickname.toUpperCase() }}</p>
+        <p>{{ nickname + '你好' }}</p>
+        <p>{{ age >= 18 ? '成年' : '未成年' }}</p>
+        <p>{{ friend.name }}</p>
+        <p>{{ friend.desc }}</p>
+
+        <!-- <p>{{ hobby }}</p> -->
+        <!-- <p>{{ if }}</p> -->
+        <!-- <p title="{{ nickname }}">我是p标签</p> -->
+        <p title="abc">我是p标签</p>
+    </div>
+
+    <script src="vue.js"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data: {
+                nickname: 'tony',
+                age: 18,
+                friend: {
+                    name: 'jepson',
+                    desc: '热爱学习'
+                }
+            }
+        })
+    </script>
+</body>
+</html>
