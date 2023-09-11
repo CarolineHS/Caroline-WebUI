@@ -7,8 +7,9 @@
 </head>
 <body>
     <div id="app">
-        <button>-</button>
-        <button>+</button>
+        <!-- v-bind:src  =>  :src -->
+        <!-- <img v-bind:src="imgUrl" v-bind:title="msg" alt=""> -->
+        <img :src="imgUrl" :title="msg" alt="">
     </div>
 
     <script src="vue.js"></script>
@@ -16,7 +17,8 @@
         const app = new Vue({
             el: '#app',
             data: {
-                
+                imgUrl: './imgs/10-02.png',
+                msg: '示例图片'
             }
         })
     </script>
