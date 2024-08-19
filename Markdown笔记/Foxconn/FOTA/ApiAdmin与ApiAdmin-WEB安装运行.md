@@ -1,5 +1,9 @@
 # ApiAdmin与ApiAdmin-WEB安装运行
 
+| 版本 |    时间    |                  描述                  | 开发者 |
+| :--: | :--------: | :------------------------------------: | :----: |
+| v1.0 | 2023/09/07 | ApiAdmin后台与ApiAdmin-WEB安装运行文档 |  何双  |
+
 ## 一、ApiAdmin安装
 
 phpstudy启动MySQL，Nginx，redis

@@ -1,5 +1,9 @@
 # QNX应用开发环境搭建
 
+| 版本 |    时间    |          描述           | 开发者 |
+| :--: | :--------: | :---------------------: | :----: |
+| v1.0 | 2023/01/02 | QNX应用开发环境搭建文档 |  何双  |
+
 ##  一、创建myQNX账户
 
 ![img](https://img-blog.csdnimg.cn/8ef50cc9d32247578987e1d868703063.png)	myQNX试用账户的申请流程可以参考这一篇文章[myQNX account试用申请流程](https://blog.csdn.net/hs_2017112123/article/details/125644067)
